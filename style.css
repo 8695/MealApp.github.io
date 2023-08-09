@@ -1,0 +1,286 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    background-color:  rgb(11, 14, 16); 
+    width: 100%;
+    height: 75vh;
+
+}
+
+
+/* nav bar design start */
+header nav{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: aliceblue;
+    
+}
+header nav h1{
+    font-size: 30px;
+    font-weight: 800;
+    background: -webkit-linear-gradient(60deg,orange,yellowgreen, rgb(12, 143, 200), rgb(141, 62, 215));
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+    margin-left: 10px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+/* button favorite  start*/
+button[type="fav"]{
+    padding: 6px;
+    font-size: 20px;
+    border: none;
+    margin-right: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: -6px;
+}
+button[type="fav"]:hover {
+    background-color: rgb(29, 27, 172);
+    color: aliceblue;
+}
+/* end */
+
+/* main section */
+/* design wecome heding start */
+main section .welcome {
+    color: rgb(171, 174, 27);
+    margin-top: 1%;
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 3px 2px 4px #fff;
+    padding: 10px;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 1px;
+}
+ main section .text {
+    color: rgb(27, 145, 174);
+    margin-top: 10%;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 10px;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 1px;
+}
+/* end */
+
+/* search recipies button start */
+form input[type="text"]{
+    flex-grow: 1;
+    margin-right: 20px;
+    text-align: center;
+
+}
+form input[type="text"], button[type="submit"]{
+    padding: 6px;
+    font-size: 30px;
+    border: none;
+    margin: 20px 30px 20px 10px;
+    /* margin-left: 20px;
+    margin-top: 30px;
+    margin-right: 20px; */
+    border-radius: 8px;
+}
+
+form button[type="submit"]{
+    background-color: rgb(209, 150, 73);
+    cursor: pointer;
+    margin-left: -4px;
+}
+form button[type="submit"]:hover, .recipe .view-recipe:hover{
+    background-color: rgb(29, 27, 172);
+    color: aliceblue;
+}
+/* end */
+
+/* responsive design */
+@media screen  and (max-width:600px){
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    header nav{
+        flex-direction: column;
+    }
+    header nav form{
+        width: 80%;
+        margin-top: 20px;
+    }
+    form button{
+    margin-top: 10px;
+    }
+}
+
+/*main section with image div*/
+main section .image-text-container{
+    /* padding: 10px; */
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    /* border: 2px solid white; */
+    justify-content: center;
+
+}
+main section .img-piza{
+    width: 50%;
+    height: auto;
+    padding-left: 10px;
+    /* position: relative; */
+    border: none;
+    border: 3px solid rgb(73, 194, 25);
+    border-radius: 20%;
+    margin: 20px 10px 20px 10px;
+    
+    animation-name: circle;
+    animation-duration: 7s;
+    box-shadow: 4px 2px -4px 4px white;
+    animation-iteration-count: infinite;
+   
+}
+@keyframes circle {
+    0%   {color:#fff;}
+    50%  {border:3px solid
+        #4f1bf9;
+    transform:rotate(7deg);}
+}
+
+/* recipe-container */
+.recipe-container {
+    text-align: center;
+    width: 100%;
+    margin: 25px, auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 40px;
+    padding: 40px;
+    place-items: center;
+
+}
+
+.recipe {
+    background-color: rgb(210, 25, 78);
+    display: flex;
+    flex-direction: column;
+    color: rgb(5, 5, 5);
+    border-radius: 10%;
+    max-width: 350px;
+}
+.recipe img{
+    margin: 20px;
+    height: 300px;
+    border-radius: 30%;
+}
+.recipe h3{
+    margin: 5px 0px;
+    margin-block: 10px;
+    color: rgb(46, 43, 43);
+}
+.recipe p{
+   font-size: 25px;
+   margin-top: -5px ;
+   color:rgb(40, 55, 59);
+}
+.recipe span{
+    font-style: italic;
+    color: rgb(226, 219, 213);
+    font-weight: 1000px;
+}
+.recipe button {
+    font-size: 20px;
+    font-weight: 600px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(11, 207, 14);
+    color:#14121c;
+    margin: 8px auto;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* recipe-deatils inside the view button */
+.recipe-details {
+    color: #cb2323;
+    display: none;
+    position: fixed;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%,-50%);
+    width: 46%;
+    height: 80%;
+    overflow-y: scroll;
+    font-size: 25px;
+    max-width: 800px;
+    box-shadow: rgba(0, 0, 0,.5) 0px;
+    background-color: #efedf6;
+    border-radius: 20px;
+    opacity: 0.9;
+    transition: all 1s ease-in-out;
+}
+
+/*close button */
+.recipe-details button{
+    padding: 0px 10px;
+    margin: 10px;
+    left: 84%;
+    background-color: #cb2323;
+    border-radius: 20%;
+    position: absolute;
+    cursor: pointer;
+}
+
+/* recipe-details-content */
+.recipe-details-content {
+    padding: 15px;
+}
+/* recipeName written in javascript code*/
+.recipeName{
+    margin-top: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+/* ingredient list */
+.ingredient-list ul li{
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+/* instruction */
+.instruction p{
+    line-height: 30px;
+    white-space: pre-line;
+}
+
+/* favourite recipe */
+span .favrecipe {
+    margin-left: 5px;
+    background-color: rgb(210, 25, 78);
+    color: black;
+    border: none;
+    font-size: 36px;
+}
+
+/* fav-list design */
+.message {
+    color: #efedf6;
+    font-size: 3rem;
+    text-align: center;
+    border-radius: 30%;
+    margin: 0px 20px;
+    background-color: rgb(210, 25, 78);
+} 
+
+
